@@ -1,0 +1,152 @@
+{
+    "key": "group_paso_ruta",
+    "title": "Ruta · Datos",
+    "fields": [
+        {
+            "key": "field_paso_ruta_fecha",
+            "label": "Fecha y hora",
+            "name": "ruta_fecha",
+            "type": "date_time_picker",
+            "instructions": "Día y hora de salida. Decide si la ruta es la próxima (de hoy en adelante) o ya realizada.",
+            "required": 1,
+            "display_format": "d/m/Y H:i",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_paso_ruta_encuentro",
+            "label": "Punto de encuentro",
+            "name": "ruta_encuentro",
+            "type": "text",
+            "instructions": "P. ej. Parking del área recreativa El Robledal.",
+            "required": 0,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_paso_ruta_senal",
+            "label": "Señal del sendero",
+            "name": "ruta_senal",
+            "type": "button_group",
+            "instructions": "Marca de pintura junto al antetítulo.",
+            "choices": {
+                "pr": "PR · corto recorrido",
+                "gr": "GR · gran recorrido",
+                "sl": "SL · sendero local"
+            },
+            "default_value": "pr",
+            "return_format": "value",
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_paso_ruta_distancia",
+            "label": "Distancia",
+            "name": "ruta_distancia",
+            "type": "number",
+            "instructions": "Vacío: se calcula del GPX. Con punto para los decimales: 16.6 (se ve «16,6 km»).",
+            "min": 0,
+            "step": 0.1,
+            "append": "km",
+            "wrapper": {
+                "width": "25"
+            }
+        },
+        {
+            "key": "field_paso_ruta_desnivel",
+            "label": "Desnivel positivo",
+            "name": "ruta_desnivel",
+            "type": "number",
+            "instructions": "Vacío: del GPX. Sin el «+»: 970.",
+            "min": 0,
+            "step": 1,
+            "append": "m",
+            "wrapper": {
+                "width": "25"
+            }
+        },
+        {
+            "key": "field_paso_ruta_altitud",
+            "label": "Altitud máxima",
+            "name": "ruta_altitud",
+            "type": "number",
+            "instructions": "Vacío: del GPX. Sin punto: 2071 (se ve «2.071 m»).",
+            "min": 0,
+            "step": 1,
+            "append": "m",
+            "wrapper": {
+                "width": "25"
+            }
+        },
+        {
+            "key": "field_paso_ruta_duracion",
+            "label": "Duración con paradas",
+            "name": "ruta_duracion",
+            "type": "number",
+            "instructions": "Vacío: del GPX (de la primera a la última hora del track). En horas: 6.5 = seis horas y media.",
+            "min": 0,
+            "step": 0.1,
+            "append": "h",
+            "wrapper": {
+                "width": "25"
+            }
+        },
+        {
+            "key": "field_paso_ruta_dificultad",
+            "label": "Dificultad",
+            "name": "ruta_dificultad",
+            "type": "button_group",
+            "choices": {
+                "facil": "Fácil",
+                "media": "Media",
+                "dificil": "Difícil"
+            },
+            "default_value": "media",
+            "return_format": "value",
+            "layout": "horizontal",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_paso_ruta_tipo",
+            "label": "Tipo de recorrido",
+            "name": "ruta_tipo",
+            "type": "button_group",
+            "instructions": "Circular: vuelve por otro camino · Lineal: acaba en otro sitio · Ida y vuelta: mismo camino.",
+            "choices": {
+                "circular": "Circular",
+                "lineal": "Lineal",
+                "ida-y-vuelta": "Ida y vuelta"
+            },
+            "default_value": "circular",
+            "return_format": "value",
+            "layout": "horizontal",
+            "wrapper": {
+                "width": "50"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "ruta"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Datos de cada ruta (Figma: Next Route, Route Stats). MIDE, tramos, GPX y fotos se añaden con la página de la ruta.",
+    "show_in_rest": 0,
+    "modified": 1793043367
+}

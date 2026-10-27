@@ -1,0 +1,86 @@
+{
+    "key": "group_paso_home_hero",
+    "title": "Home · Hero",
+    "fields": [
+        {
+            "key": "field_paso_hero_antetitulo",
+            "label": "Antetítulo",
+            "name": "hero_antetitulo",
+            "type": "text",
+            "instructions": "Línea amarilla en mayúsculas encima del título. Vacío: «Senderismo en Málaga, en grupo».",
+            "required": 0,
+            "default_value": "Senderismo en Málaga, en grupo",
+            "placeholder": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_paso_hero_titulo",
+            "label": "Título",
+            "name": "hero_titulo",
+            "type": "text",
+            "instructions": "Título grande de la portada (h1). Vacío: «Disfruta las maravillas de la naturaleza juntos».",
+            "required": 0,
+            "default_value": "Disfruta las maravillas de la naturaleza juntos",
+            "placeholder": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_paso_hero_imagen",
+            "label": "Foto (horizontal)",
+            "name": "hero_imagen",
+            "type": "image",
+            "instructions": "Tablet y escritorio. Mínimo 2400 × 1500 px, en WebP (p. ej. hero-home.webp).",
+            "required": 0,
+            "return_format": "id",
+            "library": "all",
+            "min_width": 2400,
+            "min_height": 1500,
+            "preview_size": "medium",
+            "mime_types": "jpg, jpeg, webp"
+        },
+        {
+            "key": "field_paso_hero_imagen_movil",
+            "label": "Foto móvil (vertical)",
+            "name": "hero_imagen_movil",
+            "type": "image",
+            "instructions": "Móvil. Mínimo 1080 × 1920 px, en WebP (p. ej. hero-home-movil.webp). Vacío: se usa la horizontal.",
+            "required": 0,
+            "return_format": "id",
+            "library": "all",
+            "min_width": 1080,
+            "min_height": 1920,
+            "preview_size": "medium",
+            "mime_types": "jpg, jpeg, webp"
+        },
+        {
+            "key": "field_paso_hero_coordenadas",
+            "label": "Coordenadas de la foto",
+            "name": "hero_coordenadas",
+            "type": "text",
+            "instructions": "Texto vertical a la derecha, solo en escritorio. Formato: 36° 56′ N · 4° 45′ W. Vacío: no se muestra.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "36° 56′ N · 4° 45′ W",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Hero de la portada (Figma: Section / Hero).",
+    "show_in_rest": 0,
+    "modified": 1793043367
+}

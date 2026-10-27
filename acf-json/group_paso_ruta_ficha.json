@@ -1,0 +1,516 @@
+{
+    "key": "group_paso_ruta_ficha",
+    "title": "Ruta · Ficha",
+    "fields": [
+        {
+            "key": "field_paso_ficha_tab_hero",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_paso_ruta_hero_imagen",
+            "label": "Foto (horizontal)",
+            "name": "ruta_hero_imagen",
+            "type": "image",
+            "required": 0,
+            "instructions": "Tablet y escritorio. Mínimo 2400 × 1500 px, en WebP (slug-hero.webp). Vacío: la imagen destacada.",
+            "wrapper": {
+                "width": "50"
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": 2400,
+            "min_height": 1500,
+            "preview_size": "medium",
+            "mime_types": "jpg, jpeg, webp"
+        },
+        {
+            "key": "field_paso_ruta_hero_imagen_movil",
+            "label": "Foto móvil (vertical)",
+            "name": "ruta_hero_imagen_movil",
+            "type": "image",
+            "required": 0,
+            "instructions": "Mínimo 1080 × 1920 px (slug-hero-movil.webp). Vacío: la horizontal.",
+            "wrapper": {
+                "width": "50"
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": 1080,
+            "min_height": 1920,
+            "preview_size": "medium",
+            "mime_types": "jpg, jpeg, webp"
+        },
+        {
+            "key": "field_paso_ruta_pie_foto",
+            "label": "Pie de foto",
+            "name": "ruta_pie_foto",
+            "type": "text",
+            "required": 0,
+            "instructions": "Dónde está hecha la foto. P. ej. La Maroma · Sierra Tejeda · 2.071 m",
+            "placeholder": "La Maroma · Sierra Tejeda · 2.071 m"
+        },
+        {
+            "key": "field_paso_ficha_tab_mide",
+            "label": "MIDE",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_paso_ruta_mide_medio",
+            "label": "Medio",
+            "name": "ruta_mide_medio",
+            "type": "button_group",
+            "required": 0,
+            "instructions": "Severidad del medio natural (1–5).",
+            "choices": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5"
+            },
+            "allow_null": 1,
+            "return_format": "value",
+            "layout": "horizontal",
+            "wrapper": {
+                "width": "25"
+            }
+        },
+        {
+            "key": "field_paso_ruta_mide_itinerario",
+            "label": "Itinerario",
+            "name": "ruta_mide_itinerario",
+            "type": "button_group",
+            "required": 0,
+            "instructions": "Orientación en el itinerario (1–5).",
+            "choices": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5"
+            },
+            "allow_null": 1,
+            "return_format": "value",
+            "layout": "horizontal",
+            "wrapper": {
+                "width": "25"
+            }
+        },
+        {
+            "key": "field_paso_ruta_mide_desplazamiento",
+            "label": "Desplazamiento",
+            "name": "ruta_mide_desplazamiento",
+            "type": "button_group",
+            "required": 0,
+            "instructions": "Dificultad en el desplazamiento (1–5).",
+            "choices": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5"
+            },
+            "allow_null": 1,
+            "return_format": "value",
+            "layout": "horizontal",
+            "wrapper": {
+                "width": "25"
+            }
+        },
+        {
+            "key": "field_paso_ruta_mide_esfuerzo",
+            "label": "Esfuerzo",
+            "name": "ruta_mide_esfuerzo",
+            "type": "button_group",
+            "required": 0,
+            "instructions": "Cantidad de esfuerzo necesario (1–5).",
+            "choices": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5"
+            },
+            "allow_null": 1,
+            "return_format": "value",
+            "layout": "horizontal",
+            "wrapper": {
+                "width": "25"
+            }
+        },
+        {
+            "key": "field_paso_ficha_tab_descripcion",
+            "label": "Descripción",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_paso_ruta_titular",
+            "label": "Titular",
+            "name": "ruta_titular",
+            "type": "text",
+            "required": 0,
+            "instructions": "Frase grande de «por qué esta ruta».",
+            "placeholder": "El techo de Málaga, entre bosques frondosos y vistas al Mediterráneo."
+        },
+        {
+            "key": "field_paso_ruta_descripcion",
+            "label": "Descripción",
+            "name": "ruta_descripcion",
+            "type": "textarea",
+            "required": 0,
+            "instructions": "Dos o tres líneas: cómo es la ruta.",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_paso_ficha_tab_recorrido",
+            "label": "Recorrido",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_paso_ruta_gpx",
+            "label": "Track (GPX)",
+            "name": "ruta_gpx",
+            "type": "file",
+            "required": 0,
+            "instructions": "El GPX de la ruta (tuyo o del grupo). De él salen el perfil de altitud, los datos secundarios y las cifras que dejes vacías en «Ruta · Datos».",
+            "return_format": "id",
+            "library": "all",
+            "mime_types": "gpx"
+        },
+        {
+            "key": "field_paso_ruta_salida",
+            "label": "Nombre de la salida",
+            "name": "ruta_salida",
+            "type": "text",
+            "required": 0,
+            "instructions": "Etiqueta del mapa: «Salida · El Robledal · 1.159 m». Vacío: «Salida · 1.159 m».",
+            "placeholder": "El Robledal",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_paso_ruta_cima",
+            "label": "Nombre de la cima",
+            "name": "ruta_cima",
+            "type": "text",
+            "required": 0,
+            "instructions": "Etiqueta del mapa: «La Maroma · 2.071 m». Vacío: «Cima · 2.071 m».",
+            "placeholder": "La Maroma",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_paso_ruta_tramo_1",
+            "label": "Tramo 1",
+            "name": "ruta_tramo_1",
+            "type": "group",
+            "layout": "row",
+            "instructions": "Vacío: no se muestra.",
+            "sub_fields": [
+                {
+                    "key": "field_paso_ruta_tramo_1_km",
+                    "label": "Kilómetros",
+                    "name": "km",
+                    "type": "text",
+                    "placeholder": "0–4",
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_paso_ruta_tramo_1_texto",
+                    "label": "Texto",
+                    "name": "texto",
+                    "type": "text",
+                    "wrapper": {
+                        "width": "75"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_paso_ruta_tramo_2",
+            "label": "Tramo 2",
+            "name": "ruta_tramo_2",
+            "type": "group",
+            "layout": "row",
+            "instructions": "",
+            "sub_fields": [
+                {
+                    "key": "field_paso_ruta_tramo_2_km",
+                    "label": "Kilómetros",
+                    "name": "km",
+                    "type": "text",
+                    "placeholder": "4–8",
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_paso_ruta_tramo_2_texto",
+                    "label": "Texto",
+                    "name": "texto",
+                    "type": "text",
+                    "wrapper": {
+                        "width": "75"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_paso_ruta_tramo_3",
+            "label": "Tramo 3",
+            "name": "ruta_tramo_3",
+            "type": "group",
+            "layout": "row",
+            "instructions": "",
+            "sub_fields": [
+                {
+                    "key": "field_paso_ruta_tramo_3_km",
+                    "label": "Kilómetros",
+                    "name": "km",
+                    "type": "text",
+                    "placeholder": "8–15,6",
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_paso_ruta_tramo_3_texto",
+                    "label": "Texto",
+                    "name": "texto",
+                    "type": "text",
+                    "wrapper": {
+                        "width": "75"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_paso_ficha_tab_llevar",
+            "label": "Qué llevar",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_paso_ruta_llevar_intro",
+            "label": "Para esta ruta · entradilla",
+            "name": "ruta_llevar_intro",
+            "type": "text",
+            "required": 0,
+            "placeholder": "Noviembre, a más de 2.000 m: arriba hace frío aunque abajo no lo parezca."
+        },
+        {
+            "key": "field_paso_ruta_llevar",
+            "label": "Para esta ruta · lista",
+            "name": "ruta_llevar",
+            "type": "textarea",
+            "required": 0,
+            "instructions": "Una cosa por línea, con dos puntos entre el nombre y la explicación. P. ej.  Frontal: Oscurece hacia las 18:00. (La lista «Siempre» es la misma en todas las rutas y va en el tema.)",
+            "rows": 6,
+            "new_lines": ""
+        },
+        {
+            "key": "field_paso_ruta_aviso",
+            "label": "Aviso",
+            "name": "ruta_aviso",
+            "type": "textarea",
+            "required": 0,
+            "instructions": "Recuadro con borde amarillo bajo la lista (hielo, calor, cortes…). Vacío: no se muestra.",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_paso_ficha_tab_llegar",
+            "label": "Cómo llegar",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_paso_ruta_localidad",
+            "label": "Localidad del punto de encuentro",
+            "name": "ruta_localidad",
+            "type": "text",
+            "required": 0,
+            "placeholder": "Alcaucín",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_paso_ruta_coordenadas",
+            "label": "Coordenadas del punto de encuentro",
+            "name": "ruta_coordenadas",
+            "type": "text",
+            "required": 0,
+            "instructions": "Latitud, longitud (para «Abrir en Google Maps»). P. ej. 36.929234, -3.995613",
+            "placeholder": "36.929234, -3.995613",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_paso_ruta_desde_malaga",
+            "label": "Desde Málaga",
+            "name": "ruta_desde_malaga",
+            "type": "textarea",
+            "required": 0,
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_paso_ruta_aparcamiento",
+            "label": "Aparcamiento",
+            "name": "ruta_aparcamiento",
+            "type": "textarea",
+            "required": 0,
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_paso_ficha_tab_galeria",
+            "label": "Galería",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_paso_ruta_galeria_1",
+            "label": "Foto 1 · cuadrada",
+            "name": "ruta_galeria_1",
+            "type": "image",
+            "required": 0,
+            "instructions": "La etiqueta sobre la foto (p. ej. «Intento anterior · Nieve») es la leyenda de la foto en Medios.",
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "thumbnail",
+            "mime_types": "jpg, jpeg, webp",
+            "wrapper": {
+                "width": "33"
+            }
+        },
+        {
+            "key": "field_paso_ruta_galeria_2",
+            "label": "Foto 2 · cuadrada",
+            "name": "ruta_galeria_2",
+            "type": "image",
+            "required": 0,
+            "instructions": "",
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "thumbnail",
+            "mime_types": "jpg, jpeg, webp",
+            "wrapper": {
+                "width": "33"
+            }
+        },
+        {
+            "key": "field_paso_ruta_galeria_3",
+            "label": "Foto 3 · vertical (alta)",
+            "name": "ruta_galeria_3",
+            "type": "image",
+            "required": 0,
+            "instructions": "",
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "thumbnail",
+            "mime_types": "jpg, jpeg, webp",
+            "wrapper": {
+                "width": "33"
+            }
+        },
+        {
+            "key": "field_paso_ruta_galeria_4",
+            "label": "Foto 4 · horizontal (ancha)",
+            "name": "ruta_galeria_4",
+            "type": "image",
+            "required": 0,
+            "instructions": "",
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "thumbnail",
+            "mime_types": "jpg, jpeg, webp",
+            "wrapper": {
+                "width": "33"
+            }
+        },
+        {
+            "key": "field_paso_ruta_galeria_5",
+            "label": "Foto 5 · cuadrada (solo escritorio)",
+            "name": "ruta_galeria_5",
+            "type": "image",
+            "required": 0,
+            "instructions": "",
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "thumbnail",
+            "mime_types": "jpg, jpeg, webp",
+            "wrapper": {
+                "width": "33"
+            }
+        },
+        {
+            "key": "field_paso_ruta_galeria_6",
+            "label": "Foto 6 · cuadrada (solo escritorio)",
+            "name": "ruta_galeria_6",
+            "type": "image",
+            "required": 0,
+            "instructions": "",
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "thumbnail",
+            "mime_types": "jpg, jpeg, webp",
+            "wrapper": {
+                "width": "33"
+            }
+        },
+        {
+            "key": "field_paso_ruta_galeria_pie",
+            "label": "Pie de la galería",
+            "name": "ruta_galeria_pie",
+            "type": "text",
+            "required": 0,
+            "placeholder": "Fotos del reconocimiento de la ruta y de un intento anterior con nieve (abril de 2025)."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "ruta"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Contenido de la ficha de cada ruta (Figma: PASO / Próxima ruta). GPX, mapa y perfil: fases 2 y 3.",
+    "show_in_rest": 0,
+    "modified": 1793043367
+}

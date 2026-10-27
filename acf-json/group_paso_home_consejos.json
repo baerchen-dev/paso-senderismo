@@ -1,0 +1,109 @@
+{
+    "key": "group_paso_home_consejos",
+    "title": "Home · Consejos",
+    "fields": [
+        {
+            "key": "field_paso_consejo_1_titulo",
+            "label": "Consejo 1 · Título",
+            "name": "consejo_1_titulo",
+            "type": "text",
+            "instructions": "Marca PR (amarillo), fija. Vacío: «Qué llevar».",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "Qué llevar",
+            "wrapper": {
+                "width": "35"
+            }
+        },
+        {
+            "key": "field_paso_consejo_1_texto",
+            "label": "Consejo 1 · Texto",
+            "name": "consejo_1_texto",
+            "type": "textarea",
+            "instructions": "Dos o tres líneas. Vacío: el texto de Figma.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "Agua (1,5–2 l), calzado de montaña, gorra, capa de abrigo y algo de comer. En verano, salida temprana.",
+            "rows": 3,
+            "new_lines": "",
+            "wrapper": {
+                "width": "65"
+            }
+        },
+        {
+            "key": "field_paso_consejo_2_titulo",
+            "label": "Consejo 2 · Título",
+            "name": "consejo_2_titulo",
+            "type": "text",
+            "instructions": "Marca GR (rojo), fija. Vacío: «Niveles de dificultad».",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "Niveles de dificultad",
+            "wrapper": {
+                "width": "35"
+            }
+        },
+        {
+            "key": "field_paso_consejo_2_texto",
+            "label": "Consejo 2 · Texto",
+            "name": "consejo_2_texto",
+            "type": "textarea",
+            "instructions": "Dos o tres líneas. Vacío: el texto de Figma.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "Fácil: menos de 10 km y 400 m de desnivel. Media: hasta 15 km y 900 m. Difícil: más, o con tramos técnicos.",
+            "rows": 3,
+            "new_lines": "",
+            "wrapper": {
+                "width": "65"
+            }
+        },
+        {
+            "key": "field_paso_consejo_3_titulo",
+            "label": "Consejo 3 · Título",
+            "name": "consejo_3_titulo",
+            "type": "text",
+            "instructions": "Marca SL (verde), fija. Vacío: «Normas del grupo».",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "Normas del grupo",
+            "wrapper": {
+                "width": "35"
+            }
+        },
+        {
+            "key": "field_paso_consejo_3_texto",
+            "label": "Consejo 3 · Texto",
+            "name": "consejo_3_texto",
+            "type": "textarea",
+            "instructions": "Dos o tres líneas. Vacío: el texto de Figma.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "Nadie se queda atrás: el ritmo lo marca la persona más lenta. Respeta los senderos y llévate tu basura.",
+            "rows": 3,
+            "new_lines": "",
+            "wrapper": {
+                "width": "65"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Tres consejos de la portada (Figma: Section / Consejos).",
+    "show_in_rest": 0,
+    "modified": 1793043367
+}

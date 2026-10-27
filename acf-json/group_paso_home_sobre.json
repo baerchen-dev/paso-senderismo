@@ -1,0 +1,61 @@
+{
+    "key": "group_paso_home_sobre",
+    "title": "Home · Sobre PASO",
+    "fields": [
+        {
+            "key": "field_paso_sobre_foto",
+            "label": "Foto (vertical)",
+            "name": "sobre_foto",
+            "type": "image",
+            "instructions": "Mínimo 1000 × 1200 px, en WebP (p. ej. home-sobre-paso.webp). Vacío: la sección sale solo con el texto.",
+            "required": 0,
+            "return_format": "id",
+            "library": "all",
+            "min_width": 1000,
+            "min_height": 1200,
+            "preview_size": "medium",
+            "mime_types": "jpg, jpeg, webp"
+        },
+        {
+            "key": "field_paso_sobre_titulo",
+            "label": "Título",
+            "name": "sobre_titulo",
+            "type": "text",
+            "instructions": "Vacío: «Organizo rutas para el club.»",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "Organizo rutas para el club."
+        },
+        {
+            "key": "field_paso_sobre_texto",
+            "label": "Texto",
+            "name": "sobre_texto",
+            "type": "textarea",
+            "instructions": "Tres o cuatro líneas. Vacío: el texto de Figma.",
+            "required": 0,
+            "default_value": "",
+            "rows": 4,
+            "new_lines": "",
+            "placeholder": "Soy Fran. Camino por las sierras de Málaga desde hace años y preparo rutas para mi grupo de senderismo: las elijo, las reconozco y las cuento aquí con todo lo que necesitas saber."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Presentación de la portada (Figma: Section / Sobre PASO).",
+    "show_in_rest": 0,
+    "modified": 1793043367
+}
