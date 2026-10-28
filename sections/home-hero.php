@@ -1,9 +1,10 @@
 <?php
 /**
- * HOME · HERO · Figma: Section / Hero (Desktop 1440 × 900 · Tablet 768 × 760 · Mobile 390 × 556)
- * Móvil: alto de pantalla menos 108 px (mínimo 500), para que asome la tarjeta de la próxima ruta
- * («Próxima ruta» + marca) y se vea que hay más; con el indicador «Desliza» abajo a la derecha.
- * En móvil el texto se apoya abajo (44 px bajo el botón, como en Figma), así cabe también en pantallas bajas.
+ * HOME · HERO · Figma: Section / Hero (Desktop 1440 × 710 · Tablet 768 × 760 · Mobile 390 × 556)
+ * Alto = alto de pantalla menos lo justo para que asome la tarjeta de la próxima ruta con su etiqueta
+ * («Próxima ruta» + marca) y se vea que hay más: −108 px en móvil (mínimo 500), −116 en tablet (máximo 760),
+ * −192 en escritorio (entre 600 y 900). Indicador «Desliza» abajo a la derecha.
+ * El texto se apoya abajo, a la distancia de Figma (44 · 114 · 176 px bajo el botón): cabe también en pantallas bajas.
  * Una sola foto fija (sin carrusel): vertical en móvil, horizontal desde tablet. Es lo primero que se ve → carga con prioridad.
  * El header (absoluto) queda encima; los velos oscurecen la foto bajo el header, detrás del texto y hacia abajo hasta petróleo.
  * Campos ACF: acf-json/group_paso_home_hero.json (Inicio → Home · Hero).
@@ -14,7 +15,7 @@ $imagen       = get_field( 'hero_imagen' );
 $imagen_movil = get_field( 'hero_imagen_movil' ) ?: $imagen;
 $coordenadas  = get_field( 'hero_coordenadas' );
 ?>
-<section class="relative isolate h-[calc(100svh-6.75rem)] min-h-125 overflow-hidden bg-petroleum md:h-190 md:min-h-0 lg:h-svh lg:min-h-160 lg:max-h-225">
+<section class="relative isolate h-[calc(100svh-6.75rem)] min-h-125 overflow-hidden bg-petroleum md:h-[min(calc(100svh-7.25rem),47.5rem)] md:min-h-150 lg:h-[calc(100svh-12rem)] lg:max-h-225">
 
   <!-- FOTO · <source> vertical por debajo de md -->
   <?php if ( $imagen ) : ?>
@@ -39,7 +40,7 @@ $coordenadas  = get_field( 'hero_coordenadas' );
   <div class="absolute inset-x-0 top-0 h-45 -z-10 bg-linear-to-b from-petroleum/60 to-transparent lg:h-60" aria-hidden="true"></div>
 
   <div class="contenedor h-full">
-    <div class="relative flex h-full flex-col items-start justify-end pt-26 pb-11 md:block md:pt-59.5 md:pb-0 lg:pt-53.5">
+    <div class="relative flex h-full flex-col items-start justify-end pt-26 pb-11 md:pb-28.5 lg:pb-44">
 
       <!-- ANTETÍTULO · etiqueta cristal (Figma: Petroleum · Cristal + desenfoque de fondo 16 + borde White · 15 %)
            Label/Eyebrow (14): el fondo de la etiqueta hace que el amarillo se lea sobre cualquier foto (cielo claro incluido).
@@ -59,14 +60,14 @@ $coordenadas  = get_field( 'hero_coordenadas' );
         <p class="absolute bottom-30 right-0 hidden text-caption text-white/82 [writing-mode:vertical-rl] lg:block"><?php echo esc_html( $coordenadas ); ?></p>
       <?php endif; ?>
 
-    </div>
-  </div>
+      <!-- INDICADOR «DESLIZA» · abajo a la derecha, alineado al borde del contenido, bajo las coordenadas (Figma: Indicador / Desliza).
+           Decorativo: la tarjeta que asoma ya dice que hay más. Sin animación con movimiento reducido -->
+      <div class="pointer-events-none absolute bottom-6 right-0 flex flex-col items-center gap-2" aria-hidden="true">
+        <span class="h-10 w-px origin-top bg-piedra/70 motion-safe:animate-desliza"></span>
+        <span class="text-caption text-piedra"><?php esc_html_e( 'Desliza', 'paso' ); ?></span>
+      </div>
 
-  <!-- INDICADOR «DESLIZA» · solo móvil, abajo a la derecha (Figma: Indicador / Desliza). Decorativo: la tarjeta que asoma ya dice que hay más.
-       Sin animación si el móvil tiene activado reducir el movimiento -->
-  <div class="pointer-events-none absolute bottom-6 right-6 flex flex-col items-center gap-2 md:hidden" aria-hidden="true">
-    <span class="h-10 w-px origin-top bg-piedra/70 motion-safe:animate-desliza"></span>
-    <span class="text-caption text-piedra"><?php esc_html_e( 'Desliza', 'paso' ); ?></span>
+    </div>
   </div>
 
 </section>
