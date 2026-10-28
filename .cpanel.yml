@@ -1,0 +1,8 @@
+---
+# Despliegue en paso.baerchen.dev desde cPanel → Git Version Control → Deploy HEAD Commit.
+# Copia el tema a su carpeta del servidor y deja fuera lo que solo sirve en Local.
+deployment:
+  tasks:
+    - export DESTINO=/home/baerchen/public_html/paso.baerchen.dev/wp-content/themes/paso/
+    - /bin/mkdir -p $DESTINO
+    - /usr/bin/rsync -a --delete --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' --exclude='src' --exclude='package.json' --exclude='package-lock.json' ./ $DESTINO
