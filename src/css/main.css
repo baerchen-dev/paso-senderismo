@@ -122,6 +122,15 @@
    */
   --font-sans: "Barlow", sans-serif;
   --font-display: "Barlow Condensed", sans-serif;
+
+  /* ANIMACIONES
+   * desliza: la línea del indicador «Desliza» del hero móvil crece hacia abajo y vuelve (animate-desliza)
+   */
+  --animate-desliza: desliza 2.4s ease-in-out infinite;
+  @keyframes desliza {
+    0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
+    50%      { transform: scaleY(1);   opacity: 0.8; }
+  }
 }
 
 /* CONTENEDOR · el único ancho de contenido de la web (Figma: retículas PASO/Grid/…)
