@@ -80,6 +80,14 @@ function paso_redirigir_proxima_ruta() {
 }
 add_action( 'template_redirect', 'paso_redirigir_proxima_ruta' );
 
+/* Búsquedas (?s=…) → /rutas/: la web no tiene buscador ni página de resultados */
+function paso_redirigir_busqueda() {
+  if ( ! is_search() ) return;
+  wp_safe_redirect( get_post_type_archive_link( 'ruta' ), 302 );
+  exit;
+}
+add_action( 'template_redirect', 'paso_redirigir_busqueda' );
+
 /* Cifras en formato español: 16.6 → «16,6» · 2071 → «2.071» · 5 → «5» */
 function paso_cifra( $valor ) {
   if ( '' === $valor || null === $valor ) return '';
