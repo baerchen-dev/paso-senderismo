@@ -8,6 +8,7 @@ require_once get_template_directory() . '/inc/mapas.php';  // mapas fijos: recor
 require_once get_template_directory() . '/inc/consejos.php'; // textos de Consejos: niveles, MIDE, normas y el día antes
 require_once get_template_directory() . '/inc/tiempo.php';     // previsión del tiempo de la próxima ruta (Open-Meteo)
 require_once get_template_directory() . '/inc/calendario.php'; // «Añadir al calendario»: .ics de la próxima ruta
+require_once get_template_directory() . '/inc/compartir.php';  // Open Graph y descripción: imagen y texto al compartir un enlace
 
 /* SETUP */
 function paso_setup() {
