@@ -1,9 +1,10 @@
 <!-- MENÚ MÓVIL · Figma: Mobile Menu / Open
  * Pantalla completa en petróleo, solo por debajo de md (tablet y escritorio llevan la navegación en el header).
- * La fila del logo y el botón (que se convierte en ✕) es la del header, que queda por encima (z-10 dentro del header).
+ * La fila del logo y el botón (que se convierte en ✕) es la del header, que queda por encima (z-10 dentro del header);
+ * el relleno de arriba sigue su alto (84, o 64 si el header está compacto).
  * Se abre con .menu-toggle (JS en assets/js/menu.js). Language Switch: pendiente de Polylang.
 -->
-<div id="menu-movil" class="fixed inset-0 flex flex-col overflow-y-auto bg-petroleum pt-21 invisible opacity-0 data-open:visible data-open:opacity-100 transition-[opacity,visibility] duration-300 motion-reduce:transition-none md:hidden">
+<div id="menu-movil" class="fixed inset-0 flex flex-col overflow-y-auto bg-petroleum pt-21 group-data-fondo/header:pt-16 invisible opacity-0 data-open:visible data-open:opacity-100 transition-[opacity,visibility] duration-300 motion-reduce:transition-none md:hidden">
 
   <nav class="px-6 pt-10" aria-label="<?php esc_attr_e( 'Navegación principal', 'paso' ); ?>">
     <p class="text-eyebrow text-muted"><?php esc_html_e( 'Explora', 'paso' ); ?></p>

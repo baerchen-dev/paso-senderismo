@@ -15,7 +15,7 @@
 <!-- ============================================================ HEADER ============================================================
  * Figma: Header / Desktop (también en tablet) y Header / Mobile.
  * Fijo. Arriba del todo, transparente encima del hero de cada página (los heros llevan degradado oscuro arriba).
- * Al bajar se esconde y al subir vuelve con fondo cristal (assets/js/header.js: data-oculto / data-fondo).
+ * Al bajar se esconde y al subir vuelve compacto y con fondo cristal (assets/js/header.js: data-oculto / data-fondo).
  * Sin transform cuando se ve: el menú móvil (fixed) va dentro y se colocaría respecto al header.
  * Página actual y hover en amarillo.
 -->
@@ -26,12 +26,13 @@
        en el propio header, el menú móvil (fixed, dentro) se colocaría respecto al header y no ocuparía la pantalla -->
   <span class="absolute inset-0 border-b border-white/10 bg-petroleum/70 backdrop-blur-xl backdrop-saturate-180 opacity-0 group-data-fondo/header:opacity-100 transition-opacity duration-300 motion-reduce:transition-none" aria-hidden="true"></span>
 
-  <div class="contenedor relative z-10 h-21 md:h-26 flex items-center justify-between gap-6">
+  <!-- Fila: 84 / 104 arriba; compacta al reaparecer (data-fondo): 64 / 72 -->
+  <div class="contenedor relative z-10 h-21 md:h-26 group-data-fondo/header:h-16 md:group-data-fondo/header:h-18 transition-[height] duration-300 motion-reduce:transition-none flex items-center justify-between gap-6">
 
-    <!-- LOGO · 36 px en móvil, 44 desde tablet -->
+    <!-- LOGO · 36 px en móvil, 44 desde tablet; compacto 32 / 36 -->
     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current">
       <span class="sr-only"><?php bloginfo( 'name' ); ?></span>
-      <?php get_template_part( 'components/logo', null, array( 'clase' => 'h-9 md:h-11' ) ); ?>
+      <?php get_template_part( 'components/logo', null, array( 'clase' => 'h-9 md:h-11 group-data-fondo/header:h-8 md:group-data-fondo/header:h-9 transition-[height] duration-300 motion-reduce:transition-none' ) ); ?>
     </a>
 
     <!-- NAVEGACIÓN · tablet y escritorio -->

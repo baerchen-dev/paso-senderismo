@@ -14,6 +14,19 @@ $titulo       = get_field( 'hero_titulo' ) ?: __( 'Disfruta las maravillas de la
 $imagen       = get_field( 'hero_imagen' );
 $imagen_movil = get_field( 'hero_imagen_movil' ) ?: $imagen;
 $coordenadas  = get_field( 'hero_coordenadas' );
+
+// Botón: directo a la ficha de la próxima ruta, con su fecha («Próxima ruta · 14 nov»: sin el día de la semana, para que
+// quepa junto a «Desliza» en móviles de 360); sin ruta programada, a Rutas
+$proxima = paso_proxima_ruta();
+$fecha   = $proxima ? get_field( 'ruta_fecha', $proxima ) : '';
+$boton   = $proxima
+  ? array(
+      'texto' => $fecha
+        ? sprintf( /* translators: %s: fecha corta de la ruta, p. ej. «14 nov» */ __( 'Próxima ruta · %s', 'paso' ), wp_date( 'j M', date_create_immutable( $fecha, wp_timezone() )->getTimestamp() ) )
+        : __( 'Ver la próxima ruta', 'paso' ),
+      'url'   => get_permalink( $proxima ),
+    )
+  : array( 'texto' => __( 'Ver las rutas', 'paso' ), 'url' => get_post_type_archive_link( 'ruta' ) );
 ?>
 <section class="relative isolate h-[calc(100svh-6.75rem)] min-h-125 overflow-hidden bg-petroleum md:h-[min(calc(100svh-7.25rem),47.5rem)] md:min-h-150 lg:h-[calc(100svh-12rem)] lg:max-h-225">
 
@@ -48,12 +61,8 @@ $coordenadas  = get_field( 'hero_coordenadas' );
       <p class="inline-flex rounded-full border border-white/15 bg-petroleum/60 px-2.5 py-1.5 text-eyebrow text-amarillo backdrop-blur-sm"><?php echo esc_html( $antetitulo ); ?></p>
       <!-- 800 px de ancho en escritorio: el título se parte en «maravillas / de la naturaleza juntos» -->
       <h1 class="mt-4 text-display-hero text-white lg:mt-5 lg:max-w-200"><?php echo esc_html( $titulo ); ?></h1>
-      <!-- Baja a la tarjeta de la próxima ruta (#proxima-ruta, sections/home-proxima-ruta.php) -->
-      <?php get_template_part( 'components/boton', null, array(
-        'texto' => __( 'Ver la próxima ruta', 'paso' ),
-        'url'   => '#proxima-ruta',
-        'clase' => 'mt-8',
-      ) ); ?>
+      <!-- A la ficha de la próxima ruta (la tarjeta de debajo ya asoma: para bajar está «Desliza») -->
+      <?php get_template_part( 'components/boton', null, $boton + array( 'clase' => 'mt-8' ) ); ?>
 
       <?php if ( $coordenadas ) : ?>
         <!-- COORDENADAS · solo escritorio, en vertical, alineadas al borde derecho de la última columna (= fin del contenido) -->

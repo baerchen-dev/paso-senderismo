@@ -1,7 +1,7 @@
 <?php
 /**
  * CONSEJOS (/consejos/) · Figma: PASO / Consejos (Desktop 1440 · Mobile 390; tablet sin diseño: tarjetas de 2 en 2)
- * Cabecera → 01 Qué llevar → 02 Niveles de dificultad + MIDE (#mide, destino de «¿Qué significa?» de la ficha)
+ * Cabecera (con curvas de nivel de fondo) → 01 Qué llevar → 02 Niveles de dificultad + MIDE (#mide, destino de «¿Qué significa?» de la ficha)
  * → 03 Normas del grupo → 04 El día antes → próxima ruta (la misma sección de la Home).
  * Los apartados alternan fondo Petroleum y Petroleum Raised; cada uno con su marca de sendero (PR, GR, SL, PR) y número.
  * Textos: inc/consejos.php; Qué llevar es la misma lista «Siempre» de la ficha de ruta (paso_llevar_siempre).
@@ -27,11 +27,15 @@ $tarjeta = function ( $cosa, $fondo ) { ?>
 <?php };
 ?>
 
-<section class="contenedor pt-31 pb-12 md:pt-46 lg:pb-20">
-  <p class="text-eyebrow text-amarillo"><?php esc_html_e( 'Consejos', 'paso' ); ?></p>
-  <h1 class="mt-3 text-display-hero text-piedra lg:mt-5"><?php esc_html_e( 'Antes de salir', 'paso' ); ?></h1>
-  <p class="mt-3 text-body text-muted md:max-w-160 lg:mt-5 lg:max-w-none"><?php esc_html_e( 'Lo básico para que la ruta sea cómoda y segura para todo el grupo. Si es tu primera vez, empieza por aquí.', 'paso' ); ?></p>
-</section>
+<!-- CABECERA · con curvas de nivel de fondo (components/curvas-nivel.php), desde arriba del todo, bajo el header -->
+<div class="relative isolate overflow-hidden">
+  <?php get_template_part( 'components/curvas-nivel' ); ?>
+  <section class="contenedor pt-31 pb-12 md:pt-46 lg:pb-20">
+    <p class="text-eyebrow text-amarillo"><?php esc_html_e( 'Consejos', 'paso' ); ?></p>
+    <h1 class="mt-3 text-display-hero text-piedra lg:mt-5"><?php esc_html_e( 'Antes de salir', 'paso' ); ?></h1>
+    <p class="mt-3 text-body text-muted md:max-w-160 lg:mt-5 lg:max-w-none"><?php esc_html_e( 'Lo básico para que la ruta sea cómoda y segura para todo el grupo. Si es tu primera vez, empieza por aquí.', 'paso' ); ?></p>
+  </section>
+</div>
 
 <!-- 01 · QUÉ LLEVAR -->
 <section class="border-y border-line bg-petroleum-raised pt-12 pb-14 lg:pt-20 lg:pb-24" aria-labelledby="que-llevar">
