@@ -6,6 +6,8 @@ require_once get_template_directory() . '/inc/rutas.php';  // tipo de contenido 
 require_once get_template_directory() . '/inc/gpx.php';    // GPX de cada ruta: cifras y perfil de altitud
 require_once get_template_directory() . '/inc/mapas.php';  // mapas fijos: recorrido y punto de encuentro
 require_once get_template_directory() . '/inc/consejos.php'; // textos de Consejos: niveles, MIDE, normas y el día antes
+require_once get_template_directory() . '/inc/tiempo.php';     // previsión del tiempo de la próxima ruta (Open-Meteo)
+require_once get_template_directory() . '/inc/calendario.php'; // «Añadir al calendario»: .ics de la próxima ruta
 
 /* SETUP */
 function paso_setup() {
@@ -87,10 +89,13 @@ function paso_enqueue_scripts() {
     'paso-menu'     => '/assets/js/menu.js',       // menú móvil
     'paso-header'   => '/assets/js/header.js',     // header fijo: se esconde al bajar, vuelve al subir
     'paso-tarjetas' => '/assets/js/tarjetas.js',   // fotos de las tarjetas en color al entrar en pantalla (táctil)
+    'paso-cifras'   => '/assets/js/cifras.js',     // cifras de las rutas que cuentan desde 0 al verse
   );
   if ( is_singular( 'ruta' ) ) {
     $scripts['paso-pestanas'] = '/assets/js/pestanas.js';   // ficha: pestañas / acordeón del detalle
     $scripts['paso-galeria']  = '/assets/js/galeria.js';    // ficha: visor de fotos a pantalla completa
+    $scripts['paso-trazado']  = '/assets/js/trazado.js';    // ficha: trazado del mapa y perfil que se dibujan al verse
+    $scripts['paso-compartir'] = '/assets/js/compartir.js'; // ficha: «Compartir la ruta» con el menú del móvil
   }
   foreach ( $scripts as $nombre => $js ) {
     wp_enqueue_script(

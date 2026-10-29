@@ -2,7 +2,7 @@
 /**
  * ROUTE CARD · Figma: Route Card (Status=Realizada / Próxima × State=Default / Hover)
  * Foto de 240 de alto (la imagen destacada de la ruta) con la etiqueta de estado; debajo, marca + mes, nombre, 3 datos y enlace.
- * Foto apagada en reposo (saturate .5 + brightness .9); en color al pasar el ratón o, en pantallas táctiles,
+ * Foto casi en color en reposo (saturate .85 + brightness .95); en color al pasar el ratón o, en pantallas táctiles,
  * cuando la tarjeta entra en pantalla (data-en-pantalla, assets/js/tarjetas.js).
  * Toda la tarjeta es clicable: el enlace se estira sobre ella (after:inset-0), y sigue siendo un solo enlace.
  * $args: 'ruta' (WP_Post), 'proxima' (true → Status=Próxima), 'clase' (opcional).
@@ -20,7 +20,7 @@ $dificultad = $dificultad['choices'][ $dificultad['value'] ] ?? '';
 
   <div class="relative h-60 bg-petroleum-raised">
     <?php echo get_the_post_thumbnail( $ruta, 'large', array(
-      'class' => 'size-full object-cover saturate-50 brightness-90 transition-[filter] duration-400 ease-out motion-reduce:transition-none group-hover:saturate-100 group-hover:brightness-100 group-focus-within:saturate-100 group-focus-within:brightness-100 group-data-en-pantalla:saturate-100 group-data-en-pantalla:brightness-100',
+      'class' => 'size-full object-cover saturate-85 brightness-95 transition-[filter] duration-400 ease-out motion-reduce:transition-none group-hover:saturate-100 group-hover:brightness-100 group-focus-within:saturate-100 group-focus-within:brightness-100 group-data-en-pantalla:saturate-100 group-data-en-pantalla:brightness-100',
       'sizes' => '(min-width: 1024px) 405px, 300px',
       'alt'   => '',
     ) ); ?>

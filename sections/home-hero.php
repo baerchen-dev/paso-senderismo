@@ -35,7 +35,7 @@ $boton   = $proxima
     <picture>
       <source media="(max-width: 767px)" srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( $imagen_movil, 'full' ) ); ?>" sizes="100vw">
       <?php echo wp_get_attachment_image( $imagen, 'full', false, array(
-        'class'         => 'absolute inset-0 -z-10 size-full object-cover',
+        'class'         => 'absolute inset-0 -z-10 size-full object-cover motion-safe:animate-zoom-hero',   // zoom muy lento (src/css/main.css)
         'sizes'         => '100vw',
         'loading'       => 'eager',
         'fetchpriority' => 'high',

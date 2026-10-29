@@ -58,12 +58,16 @@ $etiqueta = sprintf(
             <stop offset="0" stop-color="var(--color-amarillo)" stop-opacity=".35"/>
             <stop offset="1" stop-color="var(--color-amarillo)" stop-opacity="0"/>
           </linearGradient>
+          <!-- Se ensancha de 0 a 1000 al entrar en pantalla: el perfil se dibuja de la salida al final (assets/js/trazado.js) -->
+          <clipPath id="perfil-revelar"><rect data-perfil-revelar width="1000" height="200" y="-50"/></clipPath>
         </defs>
         <?php foreach ( $lineas as $ele ) : ?>
           <line x1="0" x2="1000" y1="<?php echo esc_attr( $y( $ele ) ); ?>" y2="<?php echo esc_attr( $y( $ele ) ); ?>" stroke="var(--color-line)" stroke-dasharray="2 4" vector-effect="non-scaling-stroke"/>
         <?php endforeach; ?>
-        <path d="<?php echo esc_attr( $area ); ?>" fill="url(#perfil-area)"/>
-        <path d="<?php echo esc_attr( $linea ); ?>" fill="none" stroke="var(--color-amarillo)" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+        <g clip-path="url(#perfil-revelar)">
+          <path d="<?php echo esc_attr( $area ); ?>" fill="url(#perfil-area)"/>
+          <path d="<?php echo esc_attr( $linea ); ?>" fill="none" stroke="var(--color-amarillo)" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+        </g>
       </svg>
 
       <?php foreach ( $lineas as $ele ) : ?>
@@ -74,10 +78,10 @@ $etiqueta = sprintf(
         <span class="absolute top-full mt-0.5 whitespace-nowrap text-caption text-muted <?php echo 0 === $i ? '' : ( $ultima ? '-translate-x-full' : '-translate-x-1/2' ); ?>" style="left: <?php echo esc_attr( $x( $km ) ); ?>%"><?php echo esc_html( paso_cifra( round( $km, 1 ) ) ); ?> km</span>
       <?php endforeach; ?>
 
-      <!-- Cima: punto y cifra -->
-      <span class="absolute size-2 -translate-1/2 rounded-full border-2 border-petroleum bg-amarillo box-content" style="left: <?php echo esc_attr( $x( $gpx['km_cima'] ) ); ?>%; top: 0"></span>
+      <!-- Cima: punto y cifra · data-perfil-cima (% del ancho): aparecen cuando la línea llega a la cima (assets/js/trazado.js) -->
+      <span data-perfil-cima="<?php echo esc_attr( $x( $gpx['km_cima'] ) ); ?>" class="absolute transition-opacity duration-300 size-2 -translate-1/2 rounded-full border-2 border-petroleum bg-amarillo box-content" style="left: <?php echo esc_attr( $x( $gpx['km_cima'] ) ); ?>%; top: 0"></span>
       <!-- La cifra va a la derecha del punto; si la cima está al final, a la izquierda para no salirse -->
-      <span class="absolute -top-1.5 -translate-y-full whitespace-nowrap text-caption text-piedra <?php echo $x( $gpx['km_cima'] ) > 70 ? '-ml-1.5 -translate-x-full' : 'ml-1.5'; ?>" style="left: <?php echo esc_attr( $x( $gpx['km_cima'] ) ); ?>%">
+      <span data-perfil-cima="<?php echo esc_attr( $x( $gpx['km_cima'] ) ); ?>" class="absolute transition-opacity duration-300 -top-1.5 -translate-y-full whitespace-nowrap text-caption text-piedra <?php echo $x( $gpx['km_cima'] ) > 70 ? '-ml-1.5 -translate-x-full' : 'ml-1.5'; ?>" style="left: <?php echo esc_attr( $x( $gpx['km_cima'] ) ); ?>%">
         <?php echo esc_html( paso_cifra( $gpx['altitud'] ) ); ?> m<span class="hidden lg:inline"> · km <?php echo esc_html( paso_cifra( $gpx['km_cima'] ) ); ?></span>
       </span>
     </div>

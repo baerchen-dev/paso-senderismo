@@ -42,17 +42,18 @@ $pasos = array(
   </div>
 </section>
 
-<!-- CÓMO FUNCIONA -->
-<section class="border-y border-line bg-petroleum-raised pt-14 pb-14 lg:pt-24 lg:pb-24" aria-labelledby="como-funciona">
+<!-- CÓMO FUNCIONA · banda clara (Piedra): rompe el oscuro de la página. Sobre claro, lo amarillo pasa a petróleo (contraste)
+     y el texto secundario a Line -->
+<section class="bg-piedra pt-14 pb-14 lg:pt-24 lg:pb-24" aria-labelledby="como-funciona">
   <div class="contenedor">
-    <p class="text-eyebrow text-amarillo"><?php esc_html_e( 'Cómo funciona', 'paso' ); ?></p>
-    <h2 id="como-funciona" class="mt-3 text-display-section text-piedra"><?php esc_html_e( 'Tres pasos.', 'paso' ); ?></h2>
+    <p class="text-eyebrow text-petroleum"><?php esc_html_e( 'Cómo funciona', 'paso' ); ?></p>
+    <h2 id="como-funciona" class="mt-3 text-display-section text-petroleum"><?php esc_html_e( 'Tres pasos.', 'paso' ); ?></h2>
     <ol class="mt-6 grid md:grid-cols-3 md:gap-8 lg:mt-12">
       <?php foreach ( $pasos as $i => list( $titulo, $texto ) ) : ?>
-        <li class="flex flex-col gap-2.5 border-t border-line pt-6 pb-6 md:pb-0">
-          <span class="text-data-value text-amarillo" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $i + 1 ) ); ?></span>
-          <h3 class="text-display-title text-piedra"><?php echo esc_html( $titulo ); ?></h3>
-          <p class="text-body text-muted"><?php echo esc_html( $texto ); ?></p>
+        <li class="flex flex-col gap-2.5 border-t border-petroleum/15 pt-6 pb-6 md:pb-0">
+          <span class="text-data-value text-petroleum" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $i + 1 ) ); ?></span>
+          <h3 class="text-display-title text-petroleum"><?php echo esc_html( $titulo ); ?></h3>
+          <p class="text-body text-line"><?php echo esc_html( $texto ); ?></p>
         </li>
       <?php endforeach; ?>
     </ol>

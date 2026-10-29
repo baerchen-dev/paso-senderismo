@@ -3,19 +3,19 @@
  * CONSEJOS (/consejos/) · Figma: PASO / Consejos (Desktop 1440 · Mobile 390; tablet sin diseño: tarjetas de 2 en 2)
  * Cabecera (con curvas de nivel de fondo) → 01 Qué llevar → 02 Niveles de dificultad + MIDE (#mide, destino de «¿Qué significa?» de la ficha)
  * → 03 Normas del grupo → 04 El día antes → próxima ruta (la misma sección de la Home).
- * Los apartados alternan fondo Petroleum y Petroleum Raised; cada uno con su marca de sendero (PR, GR, SL, PR) y número.
+ * Los apartados alternan fondo Petroleum y Petroleum Raised (Normas, en Piedra: banda clara); cada uno con su marca de sendero (PR, GR, SL, PR) y número.
  * Textos: inc/consejos.php; Qué llevar es la misma lista «Siempre» de la ficha de ruta (paso_llevar_siempre).
  * Márgenes de cada apartado: 48 arriba y 56 abajo hasta lg; 80 y 96 en escritorio.
  */
 get_header();
 
-// Cabecera de apartado: marca de sendero + número, y título
-$cabecera = function ( $numero, $marca, $titulo, $id ) { ?>
-  <p class="flex items-center gap-3.5 text-eyebrow text-amarillo">
+// Cabecera de apartado: marca de sendero + número, y título ($claro: sobre la banda Piedra, número y título en petróleo)
+$cabecera = function ( $numero, $marca, $titulo, $id, $claro = false ) { ?>
+  <p class="flex items-center gap-3.5 text-eyebrow <?php echo $claro ? 'text-petroleum' : 'text-amarillo'; ?>">
     <?php get_template_part( 'components/trail-mark', null, array( 'tipo' => $marca ) ); ?>
     <span><?php echo esc_html( $numero ); ?></span>
   </p>
-  <h2 id="<?php echo esc_attr( $id ); ?>" class="mt-6 text-display-section text-piedra lg:mt-10"><?php echo esc_html( $titulo ); ?></h2>
+  <h2 id="<?php echo esc_attr( $id ); ?>" class="mt-6 text-display-section lg:mt-10 <?php echo $claro ? 'text-petroleum' : 'text-piedra'; ?>"><?php echo esc_html( $titulo ); ?></h2>
 <?php };
 
 // Tarjeta de nombre + explicación (Qué llevar, El día antes)
@@ -94,15 +94,15 @@ $tarjeta = function ( $cosa, $fondo ) { ?>
   </div>
 </section>
 
-<!-- 03 · NORMAS DEL GRUPO -->
-<section class="border-y border-line bg-petroleum-raised pt-12 pb-14 lg:pt-20 lg:pb-24" aria-labelledby="normas">
+<!-- 03 · NORMAS DEL GRUPO · banda clara (Piedra): rompe el oscuro de la página; lo amarillo pasa a petróleo (contraste) -->
+<section class="bg-piedra pt-12 pb-14 lg:pt-20 lg:pb-24" aria-labelledby="normas">
   <div class="contenedor">
-    <?php $cabecera( '03', 'sl', __( 'Normas del grupo', 'paso' ), 'normas' ); ?>
+    <?php $cabecera( '03', 'sl', __( 'Normas del grupo', 'paso' ), 'normas', true ); ?>
     <ol class="mt-6 lg:mt-10">
       <?php foreach ( paso_normas() as $i => $norma ) : ?>
-        <li class="flex gap-6 border-t border-line py-5">
-          <span class="w-4.5 shrink-0 pt-0.5 text-eyebrow text-amarillo" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $i + 1 ) ); ?></span>
-          <p class="text-body text-piedra"><?php echo esc_html( $norma ); ?></p>
+        <li class="flex gap-6 border-t border-petroleum/15 py-5">
+          <span class="w-4.5 shrink-0 pt-0.5 text-eyebrow text-petroleum" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $i + 1 ) ); ?></span>
+          <p class="text-body text-petroleum"><?php echo esc_html( $norma ); ?></p>
         </li>
       <?php endforeach; ?>
     </ol>

@@ -2,7 +2,7 @@
 /**
  * RUTA · HERO · Figma: Section / Hero ruta (Desktop 1440 × 760 · Tablet y Mobile × 720)
  * Foto a todo el ancho (vertical en móvil) con velos; abajo, marca + «Próxima ruta», nombre, fecha · hora · punto de encuentro
- * y aviso de inscripción (Inscription, Mode=Info). Pie de foto: arriba a la derecha hasta lg, abajo a la derecha en escritorio.
+ * previsión del tiempo (Weather / Forecast, solo la semana antes) y aviso de inscripción (Inscription, Mode=Info). Pie de foto: arriba a la derecha hasta lg, abajo a la derecha en escritorio.
  * $args: 'ruta' (WP_Post), 'proxima' (bool).
  */
 $ruta         = $args['ruta'];
@@ -47,6 +47,8 @@ $pie          = get_field( 'ruta_pie_foto', $ruta );
         <?php if ( $fecha && $encuentro ) : ?><span class="hidden md:inline <?php echo $proxima ? 'text-piedra' : 'text-amarillo'; ?>" aria-hidden="true">·</span><?php endif; ?>
         <?php if ( $encuentro ) : ?><span class="<?php echo $proxima ? 'text-piedra' : 'text-amarillo'; ?>"><?php echo esc_html( $proxima ? $encuentro : sprintf( __( 'Salida desde %s', 'paso' ), $encuentro ) ); ?></span><?php endif; ?>
       </p>
+
+      <?php if ( $proxima ) get_template_part( 'components/tiempo', null, array( 'tiempo' => paso_ruta_tiempo( $ruta ) ) ); // solo la semana antes ?>
 
       <?php if ( $proxima ) : ?>
         <!-- INSCRIPCIÓN · Mode=Info (de momento, en el grupo de WhatsApp del club; Mode=Form cuando el club lo apruebe) -->

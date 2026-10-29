@@ -16,9 +16,10 @@ $lado = fn( $p ) => $p[0] < 200 ? '' : ( $p[0] > 800 ? '-translate-x-full' : '-t
   <div aria-hidden="true">
     <img src="<?php echo esc_url( $mapa['url'] ); ?>" alt="" width="<?php echo esc_attr( PASO_MAPA_ANCHO ); ?>" height="<?php echo esc_attr( PASO_MAPA_ALTO ); ?>" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover">
 
+    <!-- Trazado: data-trazado → se dibuja de la salida a la llegada al entrar en pantalla (assets/js/trazado.js) -->
     <svg class="absolute inset-0 size-full" viewBox="0 0 1000 625" preserveAspectRatio="none">
-      <path d="<?php echo esc_attr( $mapa['trazado'] ); ?>" fill="none" stroke="var(--color-petroleum)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-      <path d="<?php echo esc_attr( $mapa['trazado'] ); ?>" fill="none" stroke="var(--color-amarillo)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+      <path data-trazado d="<?php echo esc_attr( $mapa['trazado'] ); ?>" fill="none" stroke="var(--color-petroleum)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+      <path data-trazado d="<?php echo esc_attr( $mapa['trazado'] ); ?>" fill="none" stroke="var(--color-amarillo)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
     </svg>
 
     <!-- Marcas -->
