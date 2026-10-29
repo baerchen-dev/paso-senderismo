@@ -1,5 +1,5 @@
 /* HEADER FIJO
- * Arriba del todo: transparente sobre el hero. Al bajar se esconde (data-oculto); al subir vuelve con fondo petróleo (data-fondo).
+ * Arriba del todo: transparente sobre el hero. Al bajar se esconde (data-oculto); al subir vuelve con fondo cristal (data-fondo).
  * No se esconde con el menú móvil abierto ni cuando el foco del teclado está dentro.
  */
 const header = document.querySelector( '.site-header' );

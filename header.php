@@ -15,11 +15,16 @@
 <!-- ============================================================ HEADER ============================================================
  * Figma: Header / Desktop (también en tablet) y Header / Mobile.
  * Fijo. Arriba del todo, transparente encima del hero de cada página (los heros llevan degradado oscuro arriba).
- * Al bajar se esconde y al subir vuelve con fondo petróleo (assets/js/header.js: data-oculto / data-fondo).
+ * Al bajar se esconde y al subir vuelve con fondo cristal (assets/js/header.js: data-oculto / data-fondo).
  * Sin transform cuando se ve: el menú móvil (fixed) va dentro y se colocaría respecto al header.
  * Página actual y hover en amarillo.
 -->
-<header class="site-header fixed inset-x-0 top-0 z-50 border-b border-transparent text-white data-fondo:bg-petroleum data-fondo:border-line data-oculto:-translate-y-full transition-[translate,background-color,border-color] duration-300 motion-reduce:transition-none">
+<header class="site-header group/header fixed inset-x-0 top-0 z-50 text-white data-oculto:-translate-y-full transition-[translate] duration-300 motion-reduce:transition-none">
+
+  <!-- FONDO CRISTAL · al volver a aparecer (data-fondo), como las barras del iPhone: Petroleum · 70 % + desenfoque 24 + saturación 180 %
+       y filo blanco al 10 %. En una capa aparte: con backdrop-filter
+       en el propio header, el menú móvil (fixed, dentro) se colocaría respecto al header y no ocuparía la pantalla -->
+  <span class="absolute inset-0 border-b border-white/10 bg-petroleum/70 backdrop-blur-xl backdrop-saturate-180 opacity-0 group-data-fondo/header:opacity-100 transition-opacity duration-300 motion-reduce:transition-none" aria-hidden="true"></span>
 
   <div class="contenedor relative z-10 h-21 md:h-26 flex items-center justify-between gap-6">
 
