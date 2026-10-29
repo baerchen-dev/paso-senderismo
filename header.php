@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php wp_head(); ?>
 </head>
-<!-- relative: el header absoluto se coloca respecto al body, que ya baja con la barra de WordPress -->
 <body <?php body_class( 'relative min-h-screen flex flex-col bg-petroleum text-piedra font-sans antialiased' ); ?>>
 <?php wp_body_open(); ?>
 
@@ -15,10 +14,12 @@
 
 <!-- ============================================================ HEADER ============================================================
  * Figma: Header / Desktop (también en tablet) y Header / Mobile.
- * Absoluto y transparente, encima del hero de cada página (los heros llevan degradado oscuro arriba). No se queda fijo al bajar.
+ * Fijo. Arriba del todo, transparente encima del hero de cada página (los heros llevan degradado oscuro arriba).
+ * Al bajar se esconde y al subir vuelve con fondo petróleo (assets/js/header.js: data-oculto / data-fondo).
+ * Sin transform cuando se ve: el menú móvil (fixed) va dentro y se colocaría respecto al header.
  * Página actual y hover en amarillo.
 -->
-<header class="site-header absolute inset-x-0 top-0 z-50 text-white">
+<header class="site-header fixed inset-x-0 top-0 z-50 border-b border-transparent text-white data-fondo:bg-petroleum data-fondo:border-line data-oculto:-translate-y-full transition-[translate,background-color,border-color] duration-300 motion-reduce:transition-none">
 
   <div class="contenedor relative z-10 h-21 md:h-26 flex items-center justify-between gap-6">
 

@@ -280,9 +280,11 @@
   [data-panel][data-activo] { display: block; }
 }
 
-/* Menú móvil (fixed) debajo de la barra de administración de WordPress (solo con sesión iniciada) */
+/* Header y menú móvil (fixed) debajo de la barra de administración de WordPress (solo con sesión iniciada) */
+.admin-bar .site-header,
 .admin-bar #menu-movil { top: 46px; }
 @media (min-width: 783px) {
+  .admin-bar .site-header,
   .admin-bar #menu-movil { top: 32px; }
 }
 

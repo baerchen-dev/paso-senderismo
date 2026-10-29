@@ -85,6 +85,7 @@ add_action( 'wp_enqueue_scripts', 'paso_enqueue_styles', 20 );
 function paso_enqueue_scripts() {
   $scripts = array(
     'paso-menu'     => '/assets/js/menu.js',       // menú móvil
+    'paso-header'   => '/assets/js/header.js',     // header fijo: se esconde al bajar, vuelve al subir
     'paso-tarjetas' => '/assets/js/tarjetas.js',   // fotos de las tarjetas en color al entrar en pantalla (táctil)
   );
   if ( is_singular( 'ruta' ) ) {
